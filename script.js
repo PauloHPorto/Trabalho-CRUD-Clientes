@@ -49,7 +49,8 @@ function insertItem(item, index) {
     <td>${item.nome}</td>
     <td>${item.telefone}</td>
     <td>R$ ${item.cpf}</td>
-    <td>R$ ${item.email}</td>
+    <td>${item.email}</td>
+
     <td class="acao">
       <button onclick="editItem(${index})"><i class='bx bx-edit' ></i></button>
     </td>
@@ -94,7 +95,7 @@ btnSalvar.onclick = (e) => {
 };
 
 function getItensBD() {
-  return JSON.parse(localStorage.getItem("dbfunc")) || []; // Correção do operador de coalescência nula
+  return JSON.parse(localStorage.getItem("dbfunc")) || [];
 }
 
 function setItensBD() {
