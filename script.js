@@ -9,6 +9,9 @@ const btnSalvar = document.querySelector("#btnSalvar");
 let itens;
 let id;
 
+const getItensBD = () => JSON.parse(localStorage.getItem('dbfunc')) ?? {};
+const getItensBD = () => localStorage.setItem('dbfunc', JSON.stringify(itens)) ?? {};
+
 function openModal(edit = false, index = 0) {
   modal.classList.add('active');
 
