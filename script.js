@@ -29,6 +29,25 @@ document.querySelector("#client-form").addEventListener("submit",(e) =>{
 
   if(primeiroNome == "" || sobrenome == "" || cpf == "" || telefone == ""){
     showAlert("Por-favor, complete todos os campos", "danger");
+  }else{
+    if(selectedRow == null){
+      const list = document.querySelector("#client-list");
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+        <td>${primeiroNome}</td>
+        <td>${sobrenome}</td>
+        <td>${cpf}</td>
+        <td>${telefone}</td>
+        <td>
+        <a href="#" class="btn btn-warning btn-sm edit">Editar</a>
+        <a href="#" class="btn btn-danger btn-sm delete">Deletar</a>
+    `;
+    list.appendChild(row);
+    selectedRow = null;
+    showAlert("Cliente Adicionado", "success")
+
+    }
   }
 });
 
@@ -37,24 +56,5 @@ document.querySelector("#client-list").addEventListener("click", (e) =>{target =
       target.parentElement.parentElement.remove();
       showAlert("Client Deletado", "danger" );
   }
-  else{
-      if(selectedRow == null){
-        const list = document.querySelector("#client-list");
-        const row = document.createElement("tr");
-
-        row.innerHTML = `
-          <td>${primeiroNome}</td>
-          <td>${sobrenome}</td>
-          <td>${cpf}</td>
-          <td>${telefone}</td>
-          <td>
-          <a href="#" class="btn btn-warning btn-sm edit">Editar</a>
-          <a href="#" class="btn btn-danger btn-sm delete">Deletar</a>
-      `;
-      list.appendChild(row);
-      selectedRow = null;
-      showAlert("Cliente Adicionado", "success")
-
-      }
-    }
+  
 });
