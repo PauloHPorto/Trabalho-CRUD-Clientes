@@ -14,18 +14,18 @@ function showAlert(message, className){
 
 function clearFields(){
   document.querySelector("#primeiroNome").value = "";
-  document.querySelector("#sobrenome").value = "";
-  document.querySelector("#cpf").value = "";
-  document.querySelector("#telefone").value = "";
+  document.querySelector("#Sobrenome").value = "";
+  document.querySelector("#Cpf").value = "";
+  document.querySelector("#Telefone").value = "";
 }
 
 document.querySelector("#client-form").addEventListener("submit",(e) =>{
   e.preventDefault();
 
-  const primeiroNome = document.querySelector('#primeiroNome').value;
-  const sobrenome = document.querySelector('#sobrenome').value;
-  const cpf = document.querySelector('#cpf').value;
-  const telefone = document.querySelector('#telefone').value;
+  const primeiroNome = document.querySelector("#primeiroNome").value;
+  const sobrenome = document.querySelector("#Sobrenome").value;
+  const cpf = document.querySelector("#Cpf").value;
+  const telefone = document.querySelector("#Telefone").value;
 
   if(primeiroNome == "" || sobrenome == "" || cpf == "" || telefone == ""){
     showAlert("Por-favor, complete todos os campos", "danger");
@@ -35,7 +35,7 @@ document.querySelector("#client-form").addEventListener("submit",(e) =>{
 document.querySelector("#client-list").addEventListener("click", (e) =>{target = e.target;
   if(target.classList.contains("delete")){
       target.parentElement.parentElement.remove();
-      showAlert("Client Data Deleted", "danger" );
+      showAlert("Client Deletado", "danger" );
   }
   else{
       if(selectedRow == null){
@@ -49,11 +49,11 @@ document.querySelector("#client-list").addEventListener("click", (e) =>{target =
           <td>${telefone}</td>
           <td>
           <a href="#" class="btn btn-warning btn-sm edit">Editar</a>
-          <a href="#" class="btn btn-danger btn-sm deleted">Deletar</a>
+          <a href="#" class="btn btn-danger btn-sm delete">Deletar</a>
       `;
       list.appendChild(row);
       selectedRow = null;
-      showAlert("Client Adicionado", "Sucesso")
+      showAlert("Cliente Adicionado", "success")
 
       }
     }
