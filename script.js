@@ -33,7 +33,7 @@ document.querySelector("#client-form").addEventListener("submit",(e) =>{
 });
 
 document.querySelector("#client-list").addEventListener("click", (e) =>{target = e.target;
-  if(target.classList.contains("deleted")){
+  if(target.classList.contains("delete")){
       target.parentElement.parentElement.remove();
       showAlert("Client Data Deleted", "danger" );
   }
